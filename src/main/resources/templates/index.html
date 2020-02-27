@@ -16,29 +16,29 @@
 <script type="text/javascript"
 	th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
 
-<title>Spring Boot MongoDB Demo</title>
+<title>Spring Boot + MongoDB deployed in k8s cluster using Jenkins</title>
 </head>
 <body>
 	<div class="container">
-		<h1 class="text-center">Spring Boot + MongoDB Demo</h1>
+		<h1 class="text-center">Spring Boot + MongoDB deployed in k8s cluster using Jenkins</h1>
 		<div class="col-md-6">
 			<form name="saveUser" action="/save" method="post"
 				class="form-horizontal">
 				<div class="form-group">
-					<label for="firstName">First Name:</label> <input type="text"
-						id="firstName" class="form-control" placeholder="First Name"
-						name="firstName" />
+					<label for="Name">Name:</label> <input type="text"
+						id="Name" class="form-control" placeholder="Name"
+						name="Name" />
 				</div>
 
 				<div class="form-group">
-					<label for="lastName">Last Name:</label> <input type="text"
-						id="lastName" class="form-control" placeholder="Last Name"
-						name="lastName">
+					<label for="MobileNo">Mobile Number:</label> <input type="text"
+						id="MobileNo" class="form-control" placeholder="Mobile Number"
+						name="Mobile Number">
 				</div>
 
 				<div class="form-group">
-					<label for="email">Email:</label> <input type="email" id="email"
-						class="form-control" placeholder="Email" name="email">
+					<label for="email">Email Id:</label> <input type="email" id="email"
+						class="form-control" placeholder="Email Id" name="email">
 				</div>
 				<div class="form-group">
 					<button type="submit" class="btn btn-default">Submit</button>
@@ -53,9 +53,9 @@
 				<thead>
 					<tr>
 						<th>ID</th>
-						<th>First Name</th>
-						<th>Last Name</th>
-						<th>Email</th>
+						<th>Name</th>
+						<th>Mobile Number</th>
+						<th>Email Id</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -66,16 +66,13 @@
 
 		<div class="row-md-8">
 			<div class="col-md-3">
-				<img th:src="@{/img/mithunlogo.jpg}" alt="logo" height="200">
+				<img th:src="@{/img/kishanth.jpg}" alt="Pink flamingo." height="400">
 			</div>
 			<div class="col-md-8">
-				<h4 class="text-center">Mithun Technologies - Consultant,
-					Training, Development Center.</h4>
-				<h4 class="text-center">Contact @ +91-8296242028 ,
-					+91-9980923226</h4>
+				<h4 class="text-center">Kishanth R - Senior Engineer</h4>
+				<h4 class="text-center">Contact @ +91-9087070125</h4>
 				<h5 class="text-center">
-					Copyrights 2019 by <a href="http://mithuntechnologies.com/">Mithun
-						Technologies</a>
+					Copyrights 2020 by <a href="http://13.233.114.192:8080/">kishanth</a>
 				</h5>
 			</div>
 		</div>
@@ -92,8 +89,8 @@
 					$("#usersTable").append(row);
 
 					row.append($("<td>" + item.id + "</td>"));
-					row.append($("<td>" + item.firstName + "</td>"));
-					row.append($("<td>" + item.lastName + "</td>"));
+					row.append($("<td>" + item.Name + "</td>"));
+					row.append($("<td>" + item.MobileNo + "</td>"));
 					row.append($("<td>" + item.email + "</td>"));
 
 				});
