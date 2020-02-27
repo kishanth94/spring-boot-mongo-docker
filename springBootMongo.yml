@@ -5,7 +5,12 @@ metadata:
     name: springboot
   name: spring-controller
 spec:
-  replicas: 1
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
   template:
     metadata:
       labels:
@@ -14,6 +19,7 @@ spec:
       containers:
       - image: kishanth1994/spring-boot-mongo
         name: springboot
+        imagePullPolicy: Always
         ports:
         - name: springboot
           containerPort: 8080      
@@ -30,6 +36,7 @@ spec:
   ports:
     - port: 8080
       targetPort: 8080
+      nodePort: 31200
   selector:
     name: springboot
 ---
