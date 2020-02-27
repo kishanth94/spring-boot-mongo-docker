@@ -1,28 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    name: springboot
-  name: spring-controller
+  name: springboot-deployment
 spec:
+  selector:
+    matchLabels:
+      app: springboot
   replicas: 2
   strategy:
     type: RollingUpdate
     rollingUpdate:
       maxSurge: 1
       maxUnavailable: 1
+
   template:
     metadata:
       labels:
-        name: springboot
+        app: springboot
     spec:
       containers:
-      - image: kishanth1994/spring-boot-mongo
-        name: springboot
+      - name: springboot
+        image: kishanth1994/spring-boot-mongo
         imagePullPolicy: Always
         ports:
         - name: springboot
-          containerPort: 8080      
+          containerPort: 8080
 ---
 # Node Port Service
 apiVersion: v1
@@ -83,3 +85,4 @@ spec:
       targetPort: 27017
   selector:
     name: mongo
+
